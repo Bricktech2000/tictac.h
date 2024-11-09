@@ -24,6 +24,14 @@ int main(void) {
   TAC(main);
   work();
 
+  // time a block then output
+  TICTAC(sub) {
+    int i = 5;
+    do
+      work();
+    while (i--);
+  }
+
   // output time since `TAC(main);`
   TAC(main);
 }
