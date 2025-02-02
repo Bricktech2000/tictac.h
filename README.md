@@ -26,9 +26,10 @@ int main(void) {
 
   // time a block then output
   TICTAC(sub) {
-    int i = 5;
+    int i = 3;
     do
-      work();
+      // time an iteration then output
+      TICTAC(iter) work();
     while (i--);
   }
 
