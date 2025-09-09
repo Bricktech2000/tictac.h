@@ -2,7 +2,7 @@
 #include <time.h>
 
 #define TICTAC_PREC 6
-#define TICTAC_FILEP stderr
+#define TICTAC_STREAM stderr
 
 #define TIC(LABEL)                                                             \
   ; /* for labels */                                                           \
@@ -10,7 +10,7 @@
   static clock_t _total_##LABEL = 0
 #define TAC(LABEL)                                                             \
   _start_##LABEL = clock() - _start_##LABEL,                                   \
-  fprintf(TICTAC_FILEP, "%.*f\t%.*f\t%s\n", TICTAC_PREC,                       \
+  fprintf(TICTAC_STREAM, "%.*f\t%.*f\t%s\n", TICTAC_PREC,                      \
           _start_##LABEL * 1.0 / CLOCKS_PER_SEC, TICTAC_PREC,                  \
           (_total_##LABEL += _start_##LABEL) * 1.0 / CLOCKS_PER_SEC, #LABEL),  \
   _start_##LABEL = clock() /* exclude call to `fprintf` */
